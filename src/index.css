@@ -1,39 +1,5 @@
-/* * {
-  padding: 0;
-  margin: 0;
-}
 
 
-
-fieldset {
-  border: 5px solid black;
-  padding: 10px;
-  width: 100%;
-  margin: 10px;
-  margin-inline: auto;
-}
-legend {
-  font-size: 30px;
-}
-
-
-
-
-*/
-.hungerbar {
-    width: 30%;
-    height: 5vh;
-    background-color: green;
-  }
-  .happiness,
-  .energy,
-  .hunger {
-    border: 2px solid black;
-    height: 5vh;
-    width: 90%;
-    margin-inline: auto;
-    margin: 10px;
-  }
   
   body {
     display: flex;
@@ -42,23 +8,38 @@ legend {
     min-height: 100vh;
     flex-direction: column;
     background-color: beige;
-    font-family: "Pixelify Sans", sans-serif;
   }
-  fieldset {
-    background-color: aliceblue;
+
+
+  #btn:hover {
+    background-color: darkslategrey;
+
   }
-  button {
-    background-color: rgb(10, 68, 194);
-    color: white;
-    border: none;
-    padding: 10px;
+  #btn{
+    box-shadow: 2px 3px 0 black;
+  }
+
+  #operations{
+    margin: 5px;
     border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    box-shadow: 2px 3px 0 black;
   }
-  .btn {
+
+  #operations:hover{
+    background-color: orangered;
+  }
+
+  @media (max-width: 400px){
+    #form{
+      width: 200px;
+    }
+  }
+
+
+  #wrapper{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
   }
-  button:hover {
-    background-color: seagreen;
-  }
-  
