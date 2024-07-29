@@ -12,22 +12,20 @@ import {
 function App() {
   const [num1, setNum1] = useState("");
   const [num2, setNum2] = useState("");
-  const [operation, setOperation] = useState("+");
+  const [operation, setOperation] = useState("");
   const [result, setResult] = useState("");
-  const [activeOperation, setActiveOperation] = useState(""); 
 
-  const handleChange = (event, field) => {
-    const value = event.target.value;
-    if (field === "num1") {
+  const handleChange = (e, field) => {
+    const value = e.target.value;
+    if (field == "num1") {
       setNum1(value);
-    } else if (field === "num2") {
+    } else if (field == "num2") {
       setNum2(value);
     }
   };
 
   const handleOperation = (op) => {
     setOperation(op);
-    setActiveOperation(op); // Update active operation
   };
 
   const calculateResult = () => {
@@ -66,7 +64,7 @@ function App() {
           boxShadow: "20px 20px 0 black",
           padding: "10px",
           background: "white",
-          margin:"10px",
+          margin: "10px",
         }}
         id="form"
       >
@@ -76,7 +74,7 @@ function App() {
             placeholder="Enter first number"
             value={num1}
             onChange={(e) => handleChange(e, "num1")}
-            sx={{ fontSize: "10px", mt: 2 , width:"100%"}}
+            sx={{ fontSize: "10px", mt: 2, width: "100%" }}
             inputProps={{
               inputMode: "numeric",
               pattern: "[0-9]*",
@@ -85,27 +83,39 @@ function App() {
         </Box>
         <Box>
           <ListItem id="wrapper">
-            <Button id="operations"
+            <Button
+              id="operations"
               onClick={() => handleOperation("+")}
-              sx={{ backgroundColor: activeOperation == "+" ? "orangered" : "orange" }} 
+              sx={{
+                backgroundColor: operation == "+" ? "orangered" : "orange",
+              }}
             >
               +
             </Button>
-            <Button id="operations"
+            <Button
+              id="operations"
               onClick={() => handleOperation("-")}
-              sx={{ backgroundColor: activeOperation == "-" ? "orangered" : "orange" }}
+              sx={{
+                backgroundColor: operation == "-" ? "orangered" : "orange",
+              }}
             >
               -
             </Button>
-            <Button id="operations"
+            <Button
+              id="operations"
               onClick={() => handleOperation("*")}
-              sx={{ backgroundColor: activeOperation == "*" ? "orangered" : "orange" }}
+              sx={{
+                backgroundColor: operation == "*" ? "orangered" : "orange",
+              }}
             >
               *
             </Button>
-            <Button id="operations"
+            <Button
+              id="operations"
               onClick={() => handleOperation("/")}
-              sx={{ backgroundColor: activeOperation == "/" ? "orangered" : "orange" }}
+              sx={{
+                backgroundColor: operation == "/" ? "orangered" : "orange",
+              }}
             >
               /
             </Button>
@@ -116,7 +126,7 @@ function App() {
             placeholder="Enter second number"
             value={num2}
             onChange={(e) => handleChange(e, "num2")}
-            sx={{ fontSize: "10px", mt: 2 , width:"100%"}}
+            sx={{ fontSize: "10px", mt: 2, width: "100%" }}
             inputProps={{
               inputMode: "numeric",
               pattern: "[0-9]*",
@@ -139,7 +149,7 @@ function App() {
         <TextField
           placeholder="Result"
           value={result}
-          sx={{ fontSize: "10px", mt: 2 , width:"100%"}}
+          sx={{ fontSize: "10px", mt: 2, width: "100%" }}
           InputProps={{
             readOnly: true,
           }}
